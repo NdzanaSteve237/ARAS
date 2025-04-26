@@ -26,8 +26,8 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-  <link href="assets/css/evo-calendar.midnight-blue.min.css" rel="stylesheet">
-  <link href="assets/css/evo-calendar.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
 </head>
 
@@ -66,8 +66,8 @@
 
       <div class="container">
         <div class="row gy-4 justify-content-between">
-          <div class="col-lg-4 order-lg-last hero-img" data-aos="zoom-out" data-aos-delay="100">
-            <img src="assets/img/ARAS-removebg.png" class="img-fluid animated" alt="">
+          <div class="col-lg-4 order-lg-last hero-img rounded-image" data-aos="zoom-out" data-aos-delay="100">
+            <img src="assets/img/ARAS.icone.ico" class="img-fluid animated" alt="">
           </div>
 
           <div class="col-lg-6  d-flex flex-column justify-content-center" data-aos="fade-in">
@@ -103,161 +103,76 @@
 
     <!-- About Section -->
     <section id="about" class="about section">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>A propos</h2>
+        <div><span>évènements</span> & <span class="description-title">Activités</span></div>
+      </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row align-items-xl-center gy-5">
-
-          <div class="col-xl-5 content">
-            <h3>About Us</h3>
-            <h2>Ducimus rerum libero reprehenderit cumque</h2>
-            <p>Ipsa sint sit. Quis ducimus tempore dolores impedit et dolor cumque alias maxime. Enim reiciendis minus et rerum hic non. Dicta quas cum quia maiores iure. Quidem nulla qui assumenda incidunt voluptatem tempora deleniti soluta.</p>
-            <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-          </div>
-
-          <div class="col-xl-7" l-realise-slider-card-block>
-            <div class="row gy-4 icon-boxes card-block-wrap">
-
-              <div class="card c" data-aos="fade-up" data-aos-delay="200" id="first">
-                <div class="icon-box">
-                  <i class="bi bi-buildings"></i>
-                  <h3>Eius provident</h3>
-                  <p>Magni repellendus vel ullam hic officia accusantium ipsa dolor omnis dolor voluptatem</p>
-                </div>
-              </div> <!-- End Icon Box -->
-
-              <div class="card a" data-aos="fade-up" data-aos-delay="300" id="second">
-                <div class="icon-box">
-                  <i class="bi bi-clipboard-pulse"></i>
-                  <h3>Rerum aperiam</h3>
-                  <p>Autem saepe animi et aut aspernatur culpa facere. Rerum saepe rerum voluptates quia</p>
-                </div>
-              </div> <!-- End Icon Box -->
-
-              <div class="card b" data-aos="fade-up" data-aos-delay="400" id="third">
-                <div class="icon-box">
-                  <i class="bi bi-command"></i>
-                  <h3>Veniam omnis</h3>
-                  <p>Omnis perferendis molestias culpa sed. Recusandae quas possimus. Quod consequatur corrupti</p>
-                </div>
-              </div> <!-- End Icon Box -->
-
-              <!--<div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
-                <div class="icon-box">
-                  <i class="bi bi-graph-up-arrow"></i>
-                  <h3>Delares sapiente</h3>
-                  <p>Sint et dolor voluptas minus possimus nostrum. Reiciendis commodi eligendi omnis quideme lorenda</p>
-                </div>
-              </div>--> <!-- End Icon Box -->
-
-              <div class="btn-wrap">
-                <a href="javascript:void(0);" class="btn focus" id="one"></a>
-                <a href="javascript:void(0);" class="btn" id="two"></a>
-                <a href="javascript:void(0);" class="btn" id="three"></a>
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+              {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                      "delay": 5000
+                  },
+                  "slidesPerView": 1,
+                  "pagination": {
+                      "el": ".swiper-pagination",
+                      "type": "bullets",
+                      "clickable": true
+                  },
+                  "navigation": {
+                      "nextEl": ".swiper-button-next",
+                      "prevEl": ".swiper-button-prev"
+                  }
+              }
+          </script>
+      
+          <div class="swiper-wrapper">
+              <!-- Slide 1: Qui sommes-nous ? -->
+              <div class="swiper-slide">
+                  <div class="slide-content">
+                      <h3>Qui sommes-nous?</h3>
+                      <h2>Association Retour Aux Sources</h2>
+                      <p><strong>Retour Aux Sources</strong> est une association camerounaise officiellement enregistrée en septembre 2021 qui se positionne comme catalyseur du rayonnement culturel, idéologique, socio-politique et économique de l'Afrique.</p>
+                      <a href="#" class="read-more"><span>En savoir plus</span><i class="bi bi-arrow-right"></i></a>
+                  </div>
               </div>
-            </div>
+      
+              <!-- Slide 2: D'où venons-nous ? -->
+              <div class="swiper-slide">
+                  <div class="slide-content">
+                      <h3>D'où venons-nous?</h3>
+                      <h2>Nos Racines et Notre Histoire</h2>
+                      <p>Notre association s'inspire de l'héritage culturel et historique de l'Afrique pour promouvoir les valeurs ancestrales et la renaissance culturelle. Nous croyons en un retour aux sources pour mieux construire l'avenir.</p>
+                      <a href="#" class="read-more"><span>En savoir plus</span><i class="bi bi-arrow-right"></i></a>
+                  </div>
+              </div>
+      
+              <!-- Slide 3: Où allons-nous ? -->
+              <div class="swiper-slide">
+                  <div class="slide-content">
+                      <h3>Où allons-nous?</h3>
+                      <h2>Nos Objectifs et Vision</h2>
+                      <p>Nous nous engageons à promouvoir l'éducation, l'entrepreneuriat et le développement durable en Afrique à travers des initiatives concrètes. Notre ambition est de bâtir une communauté forte et solidaire.</p>
+                      <a href="#" class="read-more"><span>En savoir plus</span><i class="bi bi-arrow-right"></i></a>
+                  </div>
+              </div>
           </div>
-
-        </div>
+      
+          <!-- Pagination et Navigation -->
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+      </div>
+      
       </div>
 
     </section><!-- /About Section -->
 
-    <!-- Features Section -->
-    <section id="features" class="features section">
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="features-item">
-              <i class="bi bi-eye" style="color: #ffbb2c;"></i>
-              <h3><a href="" class="stretched-link">Lorem Ipsum</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="features-item">
-              <i class="bi bi-infinity" style="color: #5578ff;"></i>
-              <h3><a href="" class="stretched-link">Dolor Sitema</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="features-item">
-              <i class="bi bi-mortarboard" style="color: #e80368;"></i>
-              <h3><a href="" class="stretched-link">Sed perspiciatis</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="features-item">
-              <i class="bi bi-nut" style="color: #e361ff;"></i>
-              <h3><a href="" class="stretched-link">Magni Dolores</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="500">
-            <div class="features-item">
-              <i class="bi bi-shuffle" style="color: #47aeff;"></i>
-              <h3><a href="" class="stretched-link">Nemo Enim</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="600">
-            <div class="features-item">
-              <i class="bi bi-star" style="color: #ffa76e;"></i>
-              <h3><a href="" class="stretched-link">Eiusmod Tempor</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="700">
-            <div class="features-item">
-              <i class="bi bi-x-diamond" style="color: #11dbcf;"></i>
-              <h3><a href="" class="stretched-link">Midela Teren</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="800">
-            <div class="features-item">
-              <i class="bi bi-camera-video" style="color: #4233ff;"></i>
-              <h3><a href="" class="stretched-link">Pira Neve</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="900">
-            <div class="features-item">
-              <i class="bi bi-command" style="color: #b2904f;"></i>
-              <h3><a href="" class="stretched-link">Dirada Pack</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="1000">
-            <div class="features-item">
-              <i class="bi bi-dribbble" style="color: #b20969;"></i>
-              <h3><a href="" class="stretched-link">Moton Ideal</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="1100">
-            <div class="features-item">
-              <i class="bi bi-activity" style="color: #ff5828;"></i>
-              <h3><a href="" class="stretched-link">Verdo Park</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="1200">
-            <div class="features-item">
-              <i class="bi bi-brightness-high" style="color: #29cc61;"></i>
-              <h3><a href="" class="stretched-link">Flavor Nivelanda</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Features Section -->
 
     <!-- Stats Section -->
     <section id="stats" class="stats section light-background">
@@ -269,15 +184,15 @@
           <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i class="bi bi-emoji-smile"></i>
             <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Happy Clients</p>
+              <span data-purecounter-start="0" data-purecounter-end="19" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Membres</p>
             </div>
           </div><!-- End Stats Item -->
 
           <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i class="bi bi-journal-richtext"></i>
             <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="7" data-purecounter-duration="1" class="purecounter"></span>
               <p>Projects</p>
             </div>
           </div><!-- End Stats Item -->
@@ -285,8 +200,8 @@
           <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i class="bi bi-headset"></i>
             <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Hours Of Support</p>
+              <span data-purecounter-start="0" data-purecounter-end="163" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Partenaires</p>
             </div>
           </div><!-- End Stats Item -->
 
@@ -294,7 +209,7 @@
             <i class="bi bi-people"></i>
             <div class="stats-item">
               <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Hard Workers</p>
+              <p>Sympathisants</p>
             </div>
           </div><!-- End Stats Item -->
 
@@ -306,168 +221,173 @@
 
     <!-- Details Section -->
     <section id="details" class="details section">
-
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Details</h2>
         <div><span>évènements</span> & <span class="description-title">Activités</span></div>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4 align-items-center features-item">
-          <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100" l-realise-slider-card-block>
-            <img src="assets/img/details-1.png" class="img-fluid" alt="">
-          </div>
-          <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
-            <h3>Rencontres</h3>
-            <p class="fst-italic">
-              L'association organise des rencontres avec des thèmes choisis au préalable.
-            </p>
-            <ul>
-              <li><i class="bi bi-check"></i><span> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-              <li><i class="bi bi-check"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-              <li><i class="bi bi-check"></i> <span>Ullam est qui quos consequatur eos accusamus.</span></li>
-            </ul>
-          </div>
-        </div><!-- Features Item -->
-
-        <div class="row gy-4 align-items-center features-item">
-          <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-            <img src="assets/img/details-2.png" class="img-fluid" alt="">
-          </div>
-          <div class="col-md-7 order-2 order-md-1" data-aos="fade-up" data-aos-delay="200">
-            <h3>Matchs de football</h3>
-            <p class="fst-italic">
-              Dans l'optique de partager des moments de qualité avec des activités ayant pignon sur rue, l'association
-              a une équipe de football pour des matchs amicaux avec d'autres associations.
-            </p>
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum
-            </p>
-          </div>
-        </div><!-- Features Item -->
-
-        <div class="row gy-4 align-items-center features-item">
-          <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out">
-            <img src="assets/img/details-3.png" class="img-fluid" alt="">
-          </div>
-          <div class="col-md-7" data-aos="fade-up">
-            <h3>Randonnées</h3>
-            <p>Le retour aux sources nous pousse à explorer les yeux importants de notre environnement culturel.</p>
-            <ul>
-              <li><i class="bi bi-check"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-              <li><i class="bi bi-check"></i><span> Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-              <li><i class="bi bi-check"></i> <span>Facilis ut et voluptatem aperiam. Autem soluta ad fugiat</span>.</li>
-            </ul>
-          </div>
-        </div><!-- Features Item -->
-
-        <div class="row gy-4 align-items-center features-item">
-          <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out">
-            <img src="assets/img/details-4.png" class="img-fluid" alt="">
-          </div>
-          <div class="col-md-7 order-2 order-md-1" data-aos="fade-up">
-            <h3>Deux écoles de qualité</h3>
-            <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum
-            </p>
-          </div>
-        </div><!-- Features Item -->
-
       </div>
+    
+      <div class="container">
+        <!-- Desktop View - Cards --> 
+        <div class="d-none d-md-block">
+          <div class="row g-4 justify-content-center">
+            <!-- Card 1 -->
+            <div class="col-lg-6 col-md-8" data-aos="fade-up">
+              <div class="features-card">
+                <div class="card-image-wrapper">
+                  <img src="assets/img/ARAS/Rencontre.jpg" alt="Rencontres">
+                </div>
+                <div class="card-content">
+                  <h3>Rencontres</h3>
+                  <p class="fst-italic">
+                    L'association organise des rencontres avec des thèmes choisis au préalable.
+                  </p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Card 2 -->
+            <div class="col-lg-6 col-md-8" data-aos="fade-up" data-aos-delay="100">
+              <div class="features-card">
+                <div class="card-image-wrapper">
+                  <img src="assets/img/ARAS/Foot2.jpg" alt="Football">
+                </div>
+                <div class="card-content">
+                  <h3>Matchs de football</h3>
+                  <p class="fst-italic">
+                    Dans l'optique de partager des moments de qualité avec des activités ayant pignon sur rue, l'association
+                    a une équipe de football pour des matchs amicaux avec d'autres associations.
+                  </p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Card 3 -->
+            <div class="col-lg-6 col-md-8" data-aos="fade-up" data-aos-delay="200">
+              <div class="features-card">
+                <div class="card-image-wrapper">
+                  <img src="assets/img/ARAS/Randonne.jpg" alt="Randonnées">
+                </div>
+                <div class="card-content">
+                  <h3>Randonnées</h3>
+                  <p>Le retour aux sources nous pousse à explorer les yeux importants de notre environnement culturel.</p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Card 4 -->
+            <div class="col-lg-6 col-md-8" data-aos="fade-up" data-aos-delay="300">
+              <div class="features-card">
+                <div class="card-image-wrapper">
+                  <img src="assets/img/ARAS/Musique.jpg" alt="Écoles">
+                </div>
+                <div class="card-content">
+                  <h3>Ecoles de musique</h3>
+                  <p class="fst-italic">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Mobile View - Horizontal Scroll -->
+        <div class="d-md-none mobile-scroll-wrapper">
+          <div class="mobile-scroll-container">
+            <!-- Card 1 -->
+            <div class="mobile-card">
+              <div class="features-card">
+                <div class="card-image-wrapper">
+                  <img src="assets/img/details-1.png" alt="Rencontres">
+                </div>
+                <div class="card-content">
+                  <h3>Rencontres</h3>
+                  <p class="fst-italic">
+                    L'association organise des rencontres avec des thèmes choisis au préalable.
+                  </p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Card 2 -->
+            <div class="mobile-card">
+              <div class="features-card">
+                <div class="card-image-wrapper">
+                  <img src="assets/img/ARAS/Foot2.jpg" alt="Football">
+                </div>
+                <div class="card-content">
+                  <h3>Matchs de football</h3>
+                  <p class="fst-italic">
+                    Dans l'optique de partager des moments de qualité avec des activités ayant pignon sur rue, l'association
+                    a une équipe de football pour des matchs amicaux avec d'autres associations.
+                  </p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Card 3 -->
+            <div class="mobile-card">
+              <div class="features-card">
+                <div class="card-image-wrapper">
+                  <img src="assets/img/ARAS/Randonne.jpg" alt="Randonnées">
+                </div>
+                <div class="card-content">
+                  <h3>Randonnées</h3>
+                  <p>Le retour aux sources nous pousse à explorer les yeux importants de notre environnement culturel.</p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Card 4 -->
+            <div class="mobile-card">
+              <div class="features-card">
+                <div class="card-image-wrapper">
+                  <img src="assets/img/details-4.png" alt="Écoles">
+                </div>
+                <div class="card-content">
+                  <h3>Deux écoles de qualité</h3>
+                  <p class="fst-italic">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                  <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+              </div>
+            </div>
 
-    </section><!-- /Details Section -->
+            <!-- Card 5 -->
+            <div class="mobile-card">
+              <div class="features-card">
+                <div class="card-image-wrapper">
+                  <img src="assets/img/ARAS/mvett2.jpg" alt="Écoles">
+                </div>
+                <div class="card-content">
+                  <h3>Cabaret de Mvett</h3>
+                  <p class="fst-italic">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                  <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Details Section -->
 
     <!-- Gallery Section -->
     <section id="gallery" class="gallery section">
-
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Gallery</h2>
         <div><span>Check Our</span> <span class="description-title">Gallery</span></div>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row g-0">
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-1.jpg" class="glightbox" data-gallery="images-gallery">
-                <img src="assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div><!-- End Gallery Item -->
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-2.jpg" class="glightbox" data-gallery="images-gallery">
-                <img src="assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div><!-- End Gallery Item -->
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-3.jpg" class="glightbox" data-gallery="images-gallery">
-                <img src="assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div><!-- End Gallery Item -->
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-4.jpg" class="glightbox" data-gallery="images-gallery">
-                <img src="assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div><!-- End Gallery Item -->
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-5.jpg" class="glightbox" data-gallery="images-gallery">
-                <img src="assets/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div><!-- End Gallery Item -->
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-6.jpg" class="glightbox" data-gallery="images-gallery">
-                <img src="assets/img/gallery/gallery-6.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div><!-- End Gallery Item -->
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-7.jpg" class="glightbox" data-gallery="images-gallery">
-                <img src="assets/img/gallery/gallery-7.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div><!-- End Gallery Item -->
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-8.jpg" class="glightbox" data-gallery="images-gallery">
-                <img src="assets/img/gallery/gallery-8.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div><!-- End Gallery Item -->
-
-        </div>
-
       </div>
-
+    
+      <div class="container gallery-container" data-aos="fade-up">
+        <div class="gallery-grid">
+          <!-- Gallery items will be dynamically added here -->
+        </div>
+      </div>
     </section><!-- /Gallery Section -->
 
     <!-- Testimonials Section -->
@@ -583,88 +503,56 @@
 
     </section><!-- /Testimonials Section -->
 
-    <!-- Team Section -->
-    <section id="team" class="team section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Team</h2>
-        <div><span>Check Our</span> <span class="description-title">Team</span></div>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-5">
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="member">
-              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="member">
-              <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Product Manager</span>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="member">
-              <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Team Section -->
-
-    <!-- Pricing Section -->
+    <!-- Pricing Section (Calendrier) -->
     <section id="pricing" class="pricing section">
-
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Calendrier</h2>
-        <div><span>Consulter notre</span> <span class="description-title">calendrier</span></div>
-      </div><!-- End Section Title -->
-   
-
-        <div id="calendar"></div>
-
+        <div>
+          <span>Consulter notre</span>
+          <span class="description-title">calendrier</span>
+        </div>
+      </div>
       
+      <!-- Le calendrier sera injecté ici -->
+      <div id="calendar"></div>
+    </section>
 
-    </section><!-- /Pricing Section -->
+    <!-- blogs Section -->
+    <section id="blogs" class="blogs">
+      <div class="container">
+        <div class="blog-header">
+          <div class="line"></div>
+          <h2>BLOG</h2>
+          <p>Découvrez nos articles</p>
+          <div class="blog-filters">
+            <button class="filter-btn active" data-filter="all">Tous</button>
+            <button class="filter-btn" data-filter="proverbs">Proverbes</button>
+            <button class="filter-btn" data-filter="reports">Comptes rendus</button>
+          </div>
+        </div>
+    
+        <div class="blog-grid" id="blogGrid"></div>
+      </div>
+    
+      <!-- PDF Viewer Modal -->
+      <div id="pdfModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="modal-title" id="pdfTitle"></div>
+            <button class="close-btn">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div id="pdfViewer"></div>
+            <div class="download-section">
+              <button class="download-btn" id="downloadPdf">
+                <span class="download-icon">↓</span>
+                <span>Télécharger le PDF</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Faq Section -->
     <section id="faq" class="faq section light-background">
@@ -863,13 +751,13 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Bootslander</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Association Retour Aux Sources</strong> <span>All Rights Reserved</span></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] 
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>-->
       </div>
     </div>
 
@@ -891,37 +779,91 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/calendar-preview.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-  <script src="assets/js/evo-calendar.min.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    $(document).ready(function() {
-      $('#calendar').evoCalendar({
-        
-
-        theme: "Midnight Blue",
-        calendarEvents: [
-          {
-            id: 'Main event', // Event's ID (required)
-            name: "New Year", // Event name (required)
-            date: "January/1/2020", // Event date (required)
-            description: "We are doing many things",
-            type: "holiday", // Event type (required)
-            everyYear: true // Same event every year (optional)
-          },
-          {
-            name: "Vacation Leave",
-            badge: "02/13 - 02/15", // Event badge (optional)
-            date: ["February/13/2020", "February/15/2020"], // Date range
-            description: "Vacation leave for 3 days.", // Event description (optional)
-            type: "event",
-            color: "#63d867" // Event custom color (optional)
-          }
-        ]
-
-      })
-    })
+      AOS.init({
+          duration: 800,
+          easing: 'ease-in-out',
+          once: true,
+          mirror: false
+      });
   </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Animation on scroll
+    const cards = document.querySelectorAll('.features-card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-up');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+  
+    cards.forEach(card => observer.observe(card));
+  
+    // Infinite scroll for mobile
+    const scrollContainer = document.querySelector('.mobile-scroll-container');
+    if (scrollContainer) {
+      const cardElements = Array.from(document.querySelectorAll('.mobile-card'));
+      let isCloning = false;
+  
+      scrollContainer.addEventListener('scroll', () => {
+        if (isCloning) return;
+  
+        const containerWidth = scrollContainer.clientWidth;
+        const scrollWidth = scrollContainer.scrollWidth;
+        const scrollLeft = scrollContainer.scrollLeft;
+  
+        // Si on approche de la fin du scroll (à 100px près)
+        if (scrollWidth - (scrollLeft + containerWidth) < 100) {
+          isCloning = true;
+          
+          // Clone all cards and append them to the container
+          cardElements.forEach(card => {
+            const clone = card.cloneNode(true);
+            scrollContainer.appendChild(clone);
+          });
+  
+          isCloning = false;
+        }
+      });
+    }
+  });
+  </script>
+
+<script>
+  // Polyfill pour PureCounter en cas d'erreur
+  if (typeof PureCounter === 'undefined') {
+    window.PureCounter = function() {
+      this.registerEventListeners = function() { return this; };
+      this.intersectionListenerCallback = function() { return this; };
+      this.startCounter = function() {
+        document.querySelectorAll('.purecounter').forEach(function(el) {
+          el.textContent = el.dataset.purecounterEnd || 0;
+        });
+        return this;
+      };
+      this.startCounter();
+      return this;
+    };
+  }
+  
+  // Initialiser PureCounter de manière sécurisée
+  try {
+    new PureCounter();
+  } catch(e) {
+    console.error("Erreur PureCounter:", e);
+  }
+</script>
 
 </body>
 
