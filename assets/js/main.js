@@ -1420,3 +1420,142 @@ window.addEventListener('load', function() {
   
 });
 
+// FAQ Section Interactive Effects
+document.addEventListener('DOMContentLoaded', function() {
+  // Toggle FAQ items
+  const faqItems = document.querySelectorAll('.faq-item');
+  const faqGlow = document.querySelector('.faq-glow');
+  
+  faqItems.forEach(item => {
+    item.addEventListener('click', function() {
+      // Si l'item est déjà actif, ne rien faire
+      if (this.classList.contains('faq-active')) return;
+      
+      // Désactiver tous les items
+      faqItems.forEach(faq => {
+        faq.classList.remove('faq-active');
+      });
+      
+      // Activer l'item cliqué
+      this.classList.add('faq-active');
+      
+      // Animation de l'effet de lueur
+      const rect = this.getBoundingClientRect();
+      const containerRect = document.querySelector('.faq-container').getBoundingClientRect();
+      
+      faqGlow.style.left = `${rect.left - containerRect.left + rect.width/4}px`;
+      faqGlow.style.top = `${rect.top - containerRect.top + rect.height/2}px`;
+      faqGlow.classList.add('visible');
+      
+      setTimeout(() => {
+        faqGlow.classList.remove('visible');
+      }, 1000);
+    });
+    
+    // Effet de survol
+    item.addEventListener('mouseenter', function() {
+      if (!this.classList.contains('faq-active')) {
+        this.style.transform = 'translateY(-5px) scale(1.02)';
+      }
+    });
+    
+    item.addEventListener('mouseleave', function() {
+      if (!this.classList.contains('faq-active')) {
+        this.style.transform = '';
+      }
+    });
+  });
+  
+  // Animation de la ligne connecteur
+  const createPulsingDot = () => {
+    const faqContainer = document.querySelector('.faq-container');
+    if (!faqContainer) return;
+    
+    const dot = document.createElement('div');
+    dot.classList.add('faq-pulse-dot');
+    dot.style.position = 'absolute';
+    dot.style.left = '40px';
+    dot.style.top = `${Math.random() * 80 + 10}%`;
+    dot.style.width = '4px';
+    dot.style.height = '4px';
+    dot.style.borderRadius = '50%';
+    dot.style.background = '#3a7bd5';
+    dot.style.boxShadow = '0 0 10px 2px rgba(58, 123, 213, 0.7)';
+    dot.style.zIndex = '2';
+    dot.style.opacity = '0';
+    
+    faqContainer.appendChild(dot);
+    
+    // Animation
+    gsap.to(dot, {
+      opacity: 1,
+      duration: 0.5,
+      onComplete: () => {
+        gsap.to(dot, {
+          top: '100%',
+          duration: 3,
+          ease: 'power1.inOut',
+          onComplete: () => {
+            dot.remove();
+          }
+        });
+        
+        gsap.to(dot, {
+          opacity: 0,
+          delay: 2.5,
+          duration: 0.5
+        });
+      }
+    });
+    
+    setTimeout(createPulsingDot, Math.random() * 3000 + 2000);
+  };
+  
+  // Démarrer l'animation si la bibliothèque GSAP est disponible
+  if (typeof gsap !== 'undefined') {
+    setTimeout(createPulsingDot, 1000);
+  }
+});
+
+// Améliorer la fonction de retournement des cartes
+document.addEventListener('DOMContentLoaded', function() {
+  // Gestion des cartes retournables
+  const flipButtons = document.querySelectorAll('.btn-flip');
+  const flipBackButtons = document.querySelectorAll('.btn-flip-back');
+  
+  // Fonction pour retourner au recto
+  function flipBackCard(event) {
+    event.preventDefault();
+    const card = event.target.closest('.features-card');
+    
+    // Ajouter une classe temporaire pour maintenir la hauteur pendant la transition
+    card.classList.add('maintaining-height');
+    
+    // Retirer la classe flipped pour retourner la carte
+    card.classList.remove('flipped');
+    
+    // Attendre la fin de l'animation puis retirer la classe temporaire
+    setTimeout(() => {
+      card.classList.remove('maintaining-height');
+    }, 800); // Durée égale à la transition de retournement
+  }
+  
+  // Fonction pour aller au verso
+  function flipCard(event) {
+    event.preventDefault();
+    const card = event.target.closest('.features-card');
+    card.classList.add('flipped');
+  }
+  
+  // Ajouter les écouteurs d'événements
+  flipButtons.forEach(button => {
+    button.addEventListener('click', flipCard);
+  });
+  
+  flipBackButtons.forEach(button => {
+    button.addEventListener('click', flipBackCard);
+  });
+  
+  // ... code existant ...
+});
+

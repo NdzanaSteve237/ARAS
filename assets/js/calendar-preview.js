@@ -278,3 +278,302 @@ document.addEventListener('DOMContentLoaded', () => {
     new ResponsiveEventCalendar('calendar');
   }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Éléments du DOM
+  const calendarEl = document.getElementById('calendar');
+  const currentMonthYearEl = document.getElementById('current-month-year');
+  const prevMonthBtn = document.getElementById('prev-month');
+  const nextMonthBtn = document.getElementById('next-month');
+  const filterEventsBtn = document.getElementById('filter-events-btn');
+  const calendarModal = document.getElementById('calendar-modal');
+  const closeModalBtn = document.getElementById('close-modal');
+  const modalDateText = document.getElementById('modal-date');
+  
+  // État du filtre
+  let isFiltered = false;
+  
+  // Date actuelle
+  let currentDate = new Date();
+  let currentMonth = currentDate.getMonth();
+  let currentYear = currentDate.getFullYear();
+  
+  // Événements pour notre calendrier (avec données d'exemple)
+  const events = [
+    { date: new Date(currentYear, currentMonth, 5), title: 'Réunion ARAS', color: '#3a7bd5' },
+    { date: new Date(currentYear, currentMonth, 15), title: 'Match de football', color: '#2ecc71' },
+    { date: new Date(currentYear, currentMonth, 22), title: 'Randonnée', color: '#e74c3c' },
+    { date: new Date(currentYear, currentMonth + 1, 3), title: 'Atelier culturel', color: '#f39c12' },
+    { date: new Date(currentYear, currentMonth - 1, 28), title: 'Conférence', color: '#9b59b6' }
+  ];
+  
+  // Fonction pour basculer le filtre des événements
+  function toggleEventFilter() {
+    isFiltered = !isFiltered;
+    
+    if (isFiltered) {
+      filterEventsBtn.classList.add('active');
+      filterEventsBtn.innerHTML = '<i class="bi bi-funnel-fill"></i> Afficher tout';
+      
+      // Appliquer le filtre
+      const dayCells = document.querySelectorAll('.calendar-day');
+      dayCells.forEach(cell => {
+        cell.classList.add('filtered');
+        if (cell.querySelector('.day-event')) {
+          cell.classList.add('has-event');
+        }
+      });
+    } else {
+      filterEventsBtn.classList.remove('active');
+      filterEventsBtn.innerHTML = '<i class="bi bi-funnel"></i> Afficher les événements';
+      
+      // Retirer le filtre
+      const dayCells = document.querySelectorAll('.calendar-day');
+      dayCells.forEach(cell => {
+        cell.classList.remove('filtered', 'has-event');
+      });
+    }
+  }
+  
+  // Fonction pour animer le changement de mois
+  function animateMonthChange(direction) {
+    // Ajouter une classe pour l'animation de sortie
+    calendarEl.classList.add('calendar-fade-exit');
+    
+    // Après une courte période, changer le mois et ajouter l'animation d'entrée
+    setTimeout(() => {
+      if (direction === 'prev') {
+        currentMonth--;
+        if (currentMonth < 0) {
+          currentMonth = 11;
+          currentYear--;
+        }
+      } else {
+        currentMonth++;
+        if (currentMonth > 11) {
+          currentMonth = 0;
+          currentYear++;
+        }
+      }
+      
+      // Générer le nouveau calendrier
+      generateCalendar(currentMonth, currentYear);
+      
+      // Retirer l'animation de sortie et ajouter l'animation d'entrée
+      calendarEl.classList.remove('calendar-fade-exit');
+      calendarEl.classList.add('calendar-fade-enter');
+      
+      // Retirer l'animation d'entrée après la fin
+      setTimeout(() => {
+        calendarEl.classList.remove('calendar-fade-enter');
+      }, 300);
+      
+      // Réappliquer le filtre si actif
+      if (isFiltered) {
+        setTimeout(() => {
+          toggleEventFilter();
+          toggleEventFilter(); // Double appel pour réinitialiser et réappliquer
+        }, 350);
+      }
+      
+    }, 300);
+  }
+  
+  // Fonction pour générer le calendrier
+  function generateCalendar(month, year) {
+    // Effacer le calendrier existant
+    calendarEl.innerHTML = '';
+    
+    // Définir le titre du mois et de l'année
+    const monthNames = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 
+                        'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+    currentMonthYearEl.textContent = `${monthNames[month]} ${year}`;
+    
+    // Premier jour du mois (0 = Dimanche, 1 = Lundi, etc.)
+    const firstDay = new Date(year, month, 1).getDay();
+    
+    // Nombre de jours dans le mois
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    
+    // Jours du mois précédent
+    const prevMonthDays = new Date(year, month, 0).getDate();
+    
+    // Calculer le nombre total de cellules nécessaires
+    const totalCells = Math.ceil((daysInMonth + firstDay) / 7) * 7;
+    
+    // Journée actuelle
+    const today = new Date();
+    const isCurrentMonth = today.getMonth() === month && today.getFullYear() === year;
+    
+    // Créer les cellules du calendrier
+    for (let i = 0; i < totalCells; i++) {
+      const dayCell = document.createElement('div');
+      dayCell.classList.add('calendar-day');
+      
+      // Ajouter une animation de délai basée sur l'index
+      dayCell.style.animationDelay = `${i * 0.03}s`;
+      dayCell.style.opacity = '0';
+      dayCell.style.transform = 'scale(0.9)';
+      
+      // Animation d'apparition avec délai
+      setTimeout(() => {
+        dayCell.style.transition = 'all 0.3s ease';
+        dayCell.style.opacity = '1';
+        dayCell.style.transform = 'scale(1)';
+      }, i * 30);
+      
+      const dayNumber = document.createElement('div');
+      dayNumber.classList.add('day-number');
+      
+      // Déterminer la date à afficher
+      let currentDate = null;
+      
+      if (i < firstDay) {
+        // Jours du mois précédent
+        const prevMonthDate = prevMonthDays - (firstDay - 1 - i);
+        dayNumber.textContent = prevMonthDate;
+        dayCell.classList.add('other-month');
+        currentDate = new Date(year, month - 1, prevMonthDate);
+      } else if (i < (daysInMonth + firstDay)) {
+        // Jours du mois actuel
+        const date = i - firstDay + 1;
+        dayNumber.textContent = date;
+        currentDate = new Date(year, month, date);
+        
+        // Marquer la journée actuelle
+        if (isCurrentMonth && date === today.getDate()) {
+          dayCell.classList.add('today');
+        }
+      } else {
+        // Jours du mois suivant
+        const nextMonthDate = i - (daysInMonth + firstDay) + 1;
+        dayNumber.textContent = nextMonthDate;
+        dayCell.classList.add('other-month');
+        currentDate = new Date(year, month + 1, nextMonthDate);
+      }
+      
+      dayCell.appendChild(dayNumber);
+      
+      // Vérifier s'il y a des événements pour ce jour
+      if (currentDate) {
+        const dayEvents = events.filter(event => 
+          event.date.getDate() === currentDate.getDate() && 
+          event.date.getMonth() === currentDate.getMonth() && 
+          event.date.getFullYear() === currentDate.getFullYear()
+        );
+        
+        // Ajouter les événements à la cellule
+        dayEvents.forEach(event => {
+          const eventElement = document.createElement('div');
+          eventElement.classList.add('day-event');
+          eventElement.textContent = event.title;
+          eventElement.style.background = `linear-gradient(135deg, ${event.color}, ${adjustColor(event.color, -20)})`;
+          dayCell.appendChild(eventElement);
+          
+          // Ajouter une classe pour indiquer que cette cellule a un événement (pour le filtre)
+          dayCell.dataset.hasEvent = "true";
+        });
+      }
+      
+      // Ajouter un effet de survol interactif
+      dayCell.addEventListener('mouseover', createRippleEffect);
+      
+      // Ajouter l'événement au clic pour ouvrir le modal
+      dayCell.addEventListener('click', function() {
+        openModal(currentDate);
+      });
+      
+      calendarEl.appendChild(dayCell);
+    }
+    
+    // Réappliquer le filtre si nécessaire
+    if (isFiltered) {
+      setTimeout(() => {
+        const dayCells = document.querySelectorAll('.calendar-day');
+        dayCells.forEach(cell => {
+          cell.classList.add('filtered');
+          if (cell.querySelector('.day-event')) {
+            cell.classList.add('has-event');
+          }
+        });
+      }, 300);
+    }
+  }
+  
+  // Fonction pour créer un effet d'ondulation au survol
+  function createRippleEffect(e) {
+    const ripple = document.createElement('div');
+    ripple.classList.add('ripple');
+    ripple.style.left = `${e.offsetX}px`;
+    ripple.style.top = `${e.offsetY}px`;
+    
+    this.appendChild(ripple);
+    
+    setTimeout(() => {
+      ripple.remove();
+    }, 600);
+  }
+  
+  // Fonction utilitaire pour ajuster une couleur (plus claire ou plus foncée)
+  function adjustColor(hex, percent) {
+    let r = parseInt(hex.substring(1, 3), 16);
+    let g = parseInt(hex.substring(3, 5), 16);
+    let b = parseInt(hex.substring(5, 7), 16);
+
+    r = Math.max(0, Math.min(255, r + percent));
+    g = Math.max(0, Math.min(255, g + percent));
+    b = Math.max(0, Math.min(255, b + percent));
+
+    return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+  }
+  
+  // Fonction pour formater la date
+  function formatDate(date) {
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return date.toLocaleDateString('fr-FR', options);
+  }
+  
+  // Fonction pour ouvrir le modal
+  function openModal(date) {
+    if (modalDateText) {
+      modalDateText.textContent = formatDate(date);
+    }
+    if (calendarModal) {
+      calendarModal.classList.add('show');
+    }
+  }
+  
+  // Fonction pour fermer le modal
+  function closeModal() {
+    if (calendarModal) {
+      calendarModal.classList.remove('show');
+    }
+  }
+  
+  // Ajouter un gestionnaire d'événements pour fermer le modal
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', closeModal);
+  }
+  
+  // Fermer le modal si on clique en dehors du contenu
+  window.addEventListener('click', function(event) {
+    if (event.target === calendarModal) {
+      closeModal();
+    }
+  });
+  
+  // Navigation entre les mois avec animation
+  prevMonthBtn.addEventListener('click', function() {
+    animateMonthChange('prev');
+  });
+  
+  nextMonthBtn.addEventListener('click', function() {
+    animateMonthChange('next');
+  });
+  
+  // Événement pour le bouton de filtre
+  filterEventsBtn.addEventListener('click', toggleEventFilter);
+  
+  // Générer le calendrier initial
+  generateCalendar(currentMonth, currentYear);
+});

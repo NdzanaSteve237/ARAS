@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport">
   <title>Index - Bootslander Bootstrap Template</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
@@ -28,6 +28,11 @@
   <link href="assets/css/main.css" rel="stylesheet">
   
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <!-- Ajouter au début du head pour les performances mobile -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
 </head>
 
@@ -61,30 +66,45 @@
   <main class="main">
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
+    <section id="hero" class="hero section">
+      <!-- Éléments de fond futuristes -->
+      <div class="hero-bg-container">
       <img src="assets/img/hiero-black.jpg" alt="" class="hero-bg">
+        <div class="hero-overlay"></div>
+        <div class="hero-particle-container"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-glow"></div>
+      </div>
 
-      <div class="container">
+      <div class="container position-relative">
         <div class="row gy-4 justify-content-between">
           <div class="col-lg-4 order-lg-last hero-img rounded-image" data-aos="zoom-out" data-aos-delay="100">
+            <div class="image-frame">
             <img src="assets/img/ARAS.icone.ico" class="img-fluid animated" alt="">
+              <div class="image-corners">
+                <span class="corner corner-tl"></span>
+                <span class="corner corner-tr"></span>
+                <span class="corner corner-bl"></span>
+                <span class="corner corner-br"></span>
           </div>
-
-          <div class="col-lg-6  d-flex flex-column justify-content-center" data-aos="fade-in">
-            <h1>Chaque arbre grandit à partir de ses propres <span>racines</span>.</h1>
-            <!--<p>We are team of talented designers making websites with Bootstrap</p>-->
-            <div class="d-flex">
-              <!--
-              <a href="#about" class="btn-get-started">Get Started</a>
-              <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
-              -->
             </div>
           </div>
 
+          <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-in">
+            <div class="hero-content">
+              <div class="hero-badge">Association Retour Aux Sources</div>
+              <h1>Chaque arbre grandit à partir de ses propres <span class="highlight">racines</span>.</h1>
+              <div class="hero-text-line"></div>
+              <div class="hero-buttons">
+                <a href="#about" class="btn-discover">Découvrir <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+      <!-- Vagues animées (conservées de l'original) -->
+      <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none">
         <defs>
           <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
         </defs>
@@ -98,25 +118,41 @@
           <use xlink:href="#wave-path" x="50" y="9"></use>
         </g>
       </svg>
-
     </section><!-- /Hero Section -->
 
     <!-- About Section -->
     <section id="about" class="about section">
+      <!-- Éléments de fond futuristes -->
+      <div class="about-bg">
+        <div class="about-grid"></div>
+        <div class="about-glow"></div>
+        <div class="about-particles"></div>
+      </div>
+      
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>A propos</h2>
-        <div><span>évènements</span> & <span class="description-title">Activités</span></div>
+        <h2>À propos</h2>
+        <div><span>Notre</span> <span class="description-title">association</span></div>
       </div>
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="swiper init-swiper">
+      <div class="container about-container" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper about-swiper">
           <script type="application/json" class="swiper-config">
               {
                   "loop": true,
-                  "speed": 600,
+              "speed": 800,
+              "effect": "coverflow",
+              "grabCursor": true,
                   "autoplay": {
-                      "delay": 5000
+                "delay": 5000,
+                "disableOnInteraction": false
+              },
+              "coverflowEffect": {
+                "rotate": 0,
+                "stretch": 0,
+                "depth": 100,
+                "modifier": 1,
+                "slideShadows": false
                   },
                   "slidesPerView": 1,
                   "pagination": {
@@ -135,113 +171,251 @@
               <!-- Slide 1: Qui sommes-nous ? -->
               <div class="swiper-slide">
                   <div class="slide-content">
+                <div class="slide-header">
+                  <div class="slide-indicator">01</div>
                       <h3>Qui sommes-nous?</h3>
+                </div>
                       <h2>Association Retour Aux Sources</h2>
+                <div class="slide-body">
                       <p><strong>Retour Aux Sources</strong> est une association camerounaise officiellement enregistrée en septembre 2021 qui se positionne comme catalyseur du rayonnement culturel, idéologique, socio-politique et économique de l'Afrique.</p>
-                      <a href="#" class="read-more"><span>En savoir plus</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="#" class="read-more">
+                    <span>En savoir plus</span>
+                    <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+                <div class="slide-shape"></div>
                   </div>
               </div>
       
               <!-- Slide 2: D'où venons-nous ? -->
               <div class="swiper-slide">
                   <div class="slide-content">
+                <div class="slide-header">
+                  <div class="slide-indicator">02</div>
                       <h3>D'où venons-nous?</h3>
+                </div>
                       <h2>Nos Racines et Notre Histoire</h2>
+                <div class="slide-body">
                       <p>Notre association s'inspire de l'héritage culturel et historique de l'Afrique pour promouvoir les valeurs ancestrales et la renaissance culturelle. Nous croyons en un retour aux sources pour mieux construire l'avenir.</p>
-                      <a href="#" class="read-more"><span>En savoir plus</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="#" class="read-more">
+                    <span>En savoir plus</span>
+                    <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+                <div class="slide-shape"></div>
                   </div>
               </div>
       
               <!-- Slide 3: Où allons-nous ? -->
               <div class="swiper-slide">
                   <div class="slide-content">
+                <div class="slide-header">
+                  <div class="slide-indicator">03</div>
                       <h3>Où allons-nous?</h3>
+                </div>
                       <h2>Nos Objectifs et Vision</h2>
+                <div class="slide-body">
                       <p>Nous nous engageons à promouvoir l'éducation, l'entrepreneuriat et le développement durable en Afrique à travers des initiatives concrètes. Notre ambition est de bâtir une communauté forte et solidaire.</p>
-                      <a href="#" class="read-more"><span>En savoir plus</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="#" class="read-more">
+                    <span>En savoir plus</span>
+                    <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+                <div class="slide-shape"></div>
                   </div>
               </div>
           </div>
       
           <!-- Pagination et Navigation -->
           <div class="swiper-pagination"></div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
+          <div class="custom-navigation">
+            <div class="swiper-button-prev">
+              <i class="bi bi-chevron-left"></i>
       </div>
-      
+            <div class="swiper-button-next">
+              <i class="bi bi-chevron-right"></i>
       </div>
-
+          </div>
+        </div>
+      </div>
     </section><!-- /About Section -->
 
 
     <!-- Stats Section -->
-    <section id="stats" class="stats section light-background">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
-            <i class="bi bi-emoji-smile"></i>
-            <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="19" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Membres</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
-            <i class="bi bi-journal-richtext"></i>
-            <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="7" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Projects</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
-            <i class="bi bi-headset"></i>
-            <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="163" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Partenaires</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
-            <i class="bi bi-people"></i>
-            <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Sympathisants</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-        </div>
-
+    <section id="stats" class="stats section">
+      <!-- Éléments de fond futuristes -->
+      <div class="stats-bg">
+        <div class="stats-grid"></div>
+        <div class="stats-glow"></div>
       </div>
 
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="section-title text-center">
+          <h2>Nos chiffres</h2>
+          <div><span>Retour Aux</span> <span class="description-title">Sources</span> <span>en données</span></div>
+        </div>
+
+        <div class="stats-container">
+        <div class="row gy-4">
+            <!-- Stat Item 1 - Membres -->
+            <div class="col-lg-3 col-md-6">
+              <div class="stat-card">
+                <div class="stat-icon-container">
+            <i class="bi bi-emoji-smile"></i>
+                  <div class="pulse-ring"></div>
+                </div>
+            <div class="stats-item">
+                  <div class="counter-container">
+                    <span data-purecounter-start="0" data-purecounter-end="19" data-purecounter-duration="2" class="purecounter"></span>
+                    <span class="counter-plus">+</span>
+                  </div>
+                  <div class="stat-line"></div>
+              <p>Membres</p>
+                  <div class="stat-description">Passionnés de culture africaine</div>
+            </div>
+              </div>
+            </div>
+
+            <!-- Stat Item 2 - Projets -->
+            <div class="col-lg-3 col-md-6">
+              <div class="stat-card">
+                <div class="stat-icon-container">
+            <i class="bi bi-journal-richtext"></i>
+                  <div class="pulse-ring"></div>
+                </div>
+            <div class="stats-item">
+                  <div class="counter-container">
+                    <span data-purecounter-start="0" data-purecounter-end="7" data-purecounter-duration="2" class="purecounter"></span>
+                    <span class="counter-plus">+</span>
+            </div>
+                  <div class="stat-line"></div>
+                  <p>Projets</p>
+                  <div class="stat-description">Initiatives culturelles actives</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stat Item 3 - Partenaires -->
+            <div class="col-lg-3 col-md-6">
+              <div class="stat-card">
+                <div class="stat-icon-container">
+            <i class="bi bi-headset"></i>
+                  <div class="pulse-ring"></div>
+                </div>
+            <div class="stats-item">
+                  <div class="counter-container">
+                    <span data-purecounter-start="0" data-purecounter-end="163" data-purecounter-duration="3" class="purecounter"></span>
+                    <span class="counter-plus">+</span>
+                  </div>
+                  <div class="stat-line"></div>
+              <p>Partenaires</p>
+                  <div class="stat-description">Collaborations et soutiens</div>
+            </div>
+              </div>
+            </div>
+
+            <!-- Stat Item 4 - Sympathisants -->
+            <div class="col-lg-3 col-md-6">
+              <div class="stat-card">
+                <div class="stat-icon-container">
+            <i class="bi bi-people"></i>
+                  <div class="pulse-ring"></div>
+                </div>
+            <div class="stats-item">
+                  <div class="counter-container">
+                    <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="2" class="purecounter"></span>
+                    <span class="counter-k">K+</span>
+                  </div>
+                  <div class="stat-line"></div>
+              <p>Sympathisants</p>
+                  <div class="stat-description">Abonnés sur nos réseaux sociaux</div>
+            </div>
+        </div>
+      </div>
+          </div>
+        </div>
+      </div>
     </section><!-- /Stats Section -->
 
     <!-- Details Section -->
     <section id="details" class="details section">
+      <!-- Éléments de fond futuristes -->
+      <div class="details-bg">
+        <div class="details-grid"></div>
+        <div class="details-glow"></div>
+        <div class="details-horizon"></div>
+      </div>
+      
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Details</h2>
-        <div><span>évènements</span> & <span class="description-title">Activités</span></div>
+        <h2>Activités</h2>
+        <div><span>Nos</span> <span class="description-title">programmes</span></div>
       </div>
     
       <div class="container">
         <!-- Desktop View - Cards --> 
         <div class="d-none d-md-block">
           <div class="row g-4 justify-content-center">
+            
             <!-- Card 1 -->
             <div class="col-lg-6 col-md-8" data-aos="fade-up">
               <div class="features-card">
+                <div class="card-front">
                 <div class="card-image-wrapper">
                   <img src="assets/img/ARAS/Rencontre.jpg" alt="Rencontres">
+                    <div class="card-shine"></div>
                 </div>
                 <div class="card-content">
+                    <div class="card-icon">
+                      <i class="bi bi-people-fill"></i>
+                    </div>
                   <h3>Rencontres</h3>
                   <p class="fst-italic">
                     L'association organise des rencontres avec des thèmes choisis au préalable.
                   </p>
+                    <div class="card-action">
+                      <a href="#" class="btn-details btn-flip">Découvrir <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="card-back">
+                  <div class="card-back-shine"></div>
+                  <div class="card-back-content">
+                    <div class="card-back-header">
+                      <h3>Rencontres</h3>
+                      <span>Échanges culturels et partage</span>
+                    </div>
+                    
+                    <div class="card-back-description">
+                      <p>Nos rencontres favorisent les échanges entre membres de différentes générations et origines. Ces moments privilégiés permettent de maintenir vivantes nos traditions et de les transmettre dans un cadre convivial.</p>
+                    </div>
+                    
+                    <div class="card-back-details">
+                      <div class="detail-item">
+                        <i class="bi bi-calendar-event"></i>
+                        <span>Mensuel</span>
+                      </div>
+                      <div class="detail-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <span>Toulouse</span>
+                      </div>
+                      <div class="detail-item">
+                        <i class="bi bi-clock"></i>
+                        <span>2-3 heures</span>
+                      </div>
+                      <div class="detail-item">
+                        <i class="bi bi-people"></i>
+                        <span>Tout public</span>
+                      </div>
+                    </div>
+                    
+                    <div class="card-back-footer">
+                      <button class="btn-flip-back">
+                        <i class="bi bi-arrow-left"></i> Retour
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -249,15 +423,63 @@
             <!-- Card 2 -->
             <div class="col-lg-6 col-md-8" data-aos="fade-up" data-aos-delay="100">
               <div class="features-card">
+                <div class="card-front">
                 <div class="card-image-wrapper">
                   <img src="assets/img/ARAS/Foot2.jpg" alt="Football">
+                    <div class="card-shine"></div>
                 </div>
                 <div class="card-content">
+                    <div class="card-icon">
+                      <i class="bi bi-dribbble"></i>
+                    </div>
                   <h3>Matchs de football</h3>
                   <p class="fst-italic">
                     Dans l'optique de partager des moments de qualité avec des activités ayant pignon sur rue, l'association
                     a une équipe de football pour des matchs amicaux avec d'autres associations.
                   </p>
+                    <div class="card-action">
+                      <a href="#" class="btn-details btn-flip">Découvrir <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="card-back">
+                  <div class="card-back-shine"></div>
+                  <div class="card-back-content">
+                    <div class="card-back-header">
+                      <h3>Matchs de football</h3>
+                      <span>Événements sportifs</span>
+                    </div>
+                    
+                    <div class="card-back-description">
+                      <p>Les matchs de football sont un moyen de partager des moments de qualité et de soutenir les équipes locales.</p>
+                    </div>
+                    
+                    <div class="card-back-details">
+                      <div class="detail-item">
+                        <i class="bi bi-calendar-event"></i>
+                        <span>Saisonnale</span>
+                      </div>
+                      <div class="detail-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <span>Toulouse</span>
+                      </div>
+                      <div class="detail-item">
+                        <i class="bi bi-clock"></i>
+                        <span>2 heures</span>
+                      </div>
+                      <div class="detail-item">
+                        <i class="bi bi-people"></i>
+                        <span>Public adultes</span>
+                      </div>
+                    </div>
+                    
+                    <div class="card-back-footer">
+                      <button class="btn-flip-back">
+                        <i class="bi bi-arrow-left"></i> Retour
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -265,12 +487,60 @@
             <!-- Card 3 -->
             <div class="col-lg-6 col-md-8" data-aos="fade-up" data-aos-delay="200">
               <div class="features-card">
+                <div class="card-front">
                 <div class="card-image-wrapper">
                   <img src="assets/img/ARAS/Randonne.jpg" alt="Randonnées">
+                    <div class="card-shine"></div>
                 </div>
                 <div class="card-content">
+                    <div class="card-icon">
+                      <i class="bi bi-tree-fill"></i>
+                    </div>
                   <h3>Randonnées</h3>
                   <p>Le retour aux sources nous pousse à explorer les yeux importants de notre environnement culturel.</p>
+                    <div class="card-action">
+                      <a href="#" class="btn-details btn-flip">Découvrir <i class="bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+    
+                <div class="card-back">
+                  <div class="card-back-shine"></div>
+                  <div class="card-back-content">
+                    <div class="card-back-header">
+                      <h3>Randonnées</h3>
+                      <span>Découverte et détente</span>
+                </div>
+                    
+                    <div class="card-back-description">
+                      <p>Les randonnées sont un excellent moyen de découvrir la nature et de se reconnecter avec les sources.</p>
+                </div>
+                    
+                    <div class="card-back-details">
+                      <div class="detail-item">
+                        <i class="bi bi-calendar-event"></i>
+                        <span>Saisonnale</span>
+              </div>
+                      <div class="detail-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <span>Toulouse</span>
+            </div>
+                      <div class="detail-item">
+                        <i class="bi bi-clock"></i>
+                        <span>2-3 heures</span>
+                      </div>
+                      <div class="detail-item">
+                        <i class="bi bi-people"></i>
+                        <span>Public adultes</span>
+          </div>
+        </div>
+    
+                    <div class="card-back-footer">
+                      <button class="btn-flip-back">
+                        <i class="bi bi-arrow-left"></i> Retour
+                      </button>
+                </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -278,95 +548,275 @@
             <!-- Card 4 -->
             <div class="col-lg-6 col-md-8" data-aos="fade-up" data-aos-delay="300">
               <div class="features-card">
+                <div class="card-front">
                 <div class="card-image-wrapper">
                   <img src="assets/img/ARAS/Musique.jpg" alt="Écoles">
+                    <div class="card-shine"></div>
                 </div>
                 <div class="card-content">
+                    <div class="card-icon">
+                      <i class="bi bi-music-note-beamed"></i>
+                    </div>
                   <h3>Ecoles de musique</h3>
                   <p class="fst-italic">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Découvrez l'héritage musical africain à travers nos cours et ateliers adaptés à tous les niveaux.
                   </p>
+                    <div class="card-action">
+                      <a href="#" class="btn-details btn-flip">Découvrir <i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div>
+    
+                <div class="card-back">
+                  <div class="card-back-shine"></div>
+                  <div class="card-back-content">
+                    <div class="card-back-header">
+                      <h3>Ecoles de musique</h3>
+                      <span>Apprendre et s'épanouir</span>
           </div>
+                    
+                    <div class="card-back-description">
+                      <p>Les écoles de musique offrent la possibilité de découvrir et de s'épanouir dans le monde de la musique.</p>
         </div>
     
-        <!-- Mobile View - Horizontal Scroll -->
-        <div class="d-md-none mobile-scroll-wrapper">
-          <div class="mobile-scroll-container">
-            <!-- Card 1 -->
-            <div class="mobile-card">
-              <div class="features-card">
-                <div class="card-image-wrapper">
-                  <img src="assets/img/details-1.png" alt="Rencontres">
+                    <div class="card-back-details">
+                      <div class="detail-item">
+                        <i class="bi bi-calendar-event"></i>
+                        <span>Saisonnale</span>
                 </div>
-                <div class="card-content">
-                  <h3>Rencontres</h3>
-                  <p class="fst-italic">
-                    L'association organise des rencontres avec des thèmes choisis au préalable.
-                  </p>
+                      <div class="detail-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <span>Toulouse</span>
+                </div>
+                      <div class="detail-item">
+                        <i class="bi bi-clock"></i>
+                        <span>2-3 heures</span>
+                      </div>
+                      <div class="detail-item">
+                        <i class="bi bi-people"></i>
+                        <span>Tout public</span>
+              </div>
+            </div>
+    
+                    <div class="card-back-footer">
+                      <button class="btn-flip-back">
+                        <i class="bi bi-arrow-left"></i> Retour
+                      </button>
+                </div>
+                  </div>
                 </div>
               </div>
             </div>
     
-            <!-- Card 2 -->
-            <div class="mobile-card">
-              <div class="features-card">
-                <div class="card-image-wrapper">
-                  <img src="assets/img/ARAS/Foot2.jpg" alt="Football">
-                </div>
-                <div class="card-content">
-                  <h3>Matchs de football</h3>
-                  <p class="fst-italic">
-                    Dans l'optique de partager des moments de qualité avec des activités ayant pignon sur rue, l'association
-                    a une équipe de football pour des matchs amicaux avec d'autres associations.
-                  </p>
-                </div>
               </div>
             </div>
     
-            <!-- Card 3 -->
-            <div class="mobile-card">
-              <div class="features-card">
-                <div class="card-image-wrapper">
-                  <img src="assets/img/ARAS/Randonne.jpg" alt="Randonnées">
-                </div>
-                <div class="card-content">
-                  <h3>Randonnées</h3>
-                  <p>Le retour aux sources nous pousse à explorer les yeux importants de notre environnement culturel.</p>
+        <!-- Mobile View - Optimisée -->
+        <div class="d-block d-md-none">
+          <div class="scroll-indicator-wrapper">
+            <!-- L'indicateur sera inséré ici par JS -->
+          </div>
+          <div class="mobile-scroll-wrapper">
+            <div class="mobile-scroll-container d-flex">
+              <!-- Card 1 - Version mobile -->
+              <div class="mobile-card">
+                <div class="features-card">
+                  <div class="card-front">
+                    <div class="card-image-wrapper">
+                      <img src="assets/img/ARAS/Rencontre.jpg" alt="Rencontres">
+                      <div class="card-shine"></div>
+                    </div>
+                    <div class="card-content">
+                      <div class="card-icon">
+                        <i class="bi bi-people-fill"></i>
+                      </div>
+                      <h3>Rencontres</h3>
+                      <p class="fst-italic">
+                        L'association organise des rencontres avec des thèmes choisis au préalable.
+                      </p>
+                      <div class="card-action">
+                        <a href="#" class="btn-details btn-flip">Découvrir <i class="bi bi-arrow-right"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-back">
+                    <div class="card-back-shine"></div>
+                    <div class="card-back-content">
+                      <div class="card-back-header">
+                        <h3>Rencontres</h3>
+                        <span>Échanges culturels et partage</span>
+                      </div>
+                      <div class="card-back-description">
+                        <p>Nos rencontres favorisent les échanges entre membres de différentes générations et origines. Ces moments privilégiés permettent de maintenir vivantes nos traditions.</p>
+                      </div>
+                      <div class="card-back-details">
+                        <div class="detail-item">
+                          <i class="bi bi-calendar-event"></i>
+                          <span>Mensuel</span>
+                        </div>
+                        <div class="detail-item">
+                          <i class="bi bi-geo-alt"></i>
+                          <span>Toulouse</span>
+                        </div>
+                      </div>
+                      <div class="card-back-footer">
+                        <button class="btn-flip-back">
+                          <i class="bi bi-arrow-left"></i> Retour
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-    
-            <!-- Card 4 -->
-            <div class="mobile-card">
-              <div class="features-card">
-                <div class="card-image-wrapper">
-                  <img src="assets/img/details-4.png" alt="Écoles">
-                </div>
-                <div class="card-content">
-                  <h3>Deux écoles de qualité</h3>
-                  <p class="fst-italic">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                  <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              
+              <!-- Card 2 - Version mobile -->
+              <div class="mobile-card">
+                <div class="features-card">
+                  <div class="card-front">
+                    <div class="card-image-wrapper">
+                      <img src="assets/img/ARAS/Foot2.jpg" alt="Football">
+                      <div class="card-shine"></div>
+                    </div>
+                    <div class="card-content">
+                      <div class="card-icon">
+                        <i class="bi bi-dribbble"></i>
+                      </div>
+                      <h3>Matchs de football</h3>
+                      <p class="fst-italic">
+                        L'association a une équipe de football pour des matchs amicaux.
+                      </p>
+                      <div class="card-action">
+                        <a href="#" class="btn-details btn-flip">Découvrir <i class="bi bi-arrow-right"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-back">
+                    <div class="card-back-shine"></div>
+                    <div class="card-back-content">
+                      <div class="card-back-header">
+                        <h3>Matchs de football</h3>
+                        <span>Événements sportifs</span>
+                      </div>
+                      <div class="card-back-description">
+                        <p>Les matchs de football sont un moyen de partager des moments de qualité et de soutenir les équipes locales.</p>
+                      </div>
+                      <div class="card-back-details">
+                        <div class="detail-item">
+                          <i class="bi bi-calendar-event"></i>
+                          <span>Saisonnale</span>
+                        </div>
+                        <div class="detail-item">
+                          <i class="bi bi-geo-alt"></i>
+                          <span>Toulouse</span>
+                        </div>
+                      </div>
+                      <div class="card-back-footer">
+                        <button class="btn-flip-back">
+                          <i class="bi bi-arrow-left"></i> Retour
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="mobile-card">
-              <div class="features-card">
-                <div class="card-image-wrapper">
-                  <img src="assets/img/ARAS/mvett2.jpg" alt="Écoles">
+              
+              <!-- Card 3 - Version mobile -->
+              <div class="mobile-card">
+                <div class="features-card">
+                  <div class="card-front">
+                    <div class="card-image-wrapper">
+                      <img src="assets/img/ARAS/Randonne.jpg" alt="Randonnées">
+                      <div class="card-shine"></div>
+                    </div>
+                    <div class="card-content">
+                      <div class="card-icon">
+                        <i class="bi bi-tree-fill"></i>
+                      </div>
+                      <h3>Randonnées</h3>
+                      <p>Le retour aux sources nous pousse à explorer notre environnement culturel.</p>
+                      <div class="card-action">
+                        <a href="#" class="btn-details btn-flip">Découvrir <i class="bi bi-arrow-right"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-back">
+                    <div class="card-back-shine"></div>
+                    <div class="card-back-content">
+                      <div class="card-back-header">
+                        <h3>Randonnées</h3>
+                        <span>Découverte et détente</span>
+                      </div>
+                      <div class="card-back-description">
+                        <p>Les randonnées sont un excellent moyen de découvrir la nature et de se reconnecter avec les sources.</p>
+                      </div>
+                      <div class="card-back-details">
+                        <div class="detail-item">
+                          <i class="bi bi-calendar-event"></i>
+                          <span>Saisonnale</span>
+                        </div>
+                        <div class="detail-item">
+                          <i class="bi bi-geo-alt"></i>
+                          <span>Toulouse</span>
+                        </div>
+                      </div>
+                      <div class="card-back-footer">
+                        <button class="btn-flip-back">
+                          <i class="bi bi-arrow-left"></i> Retour
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="card-content">
-                  <h3>Cabaret de Mvett</h3>
-                  <p class="fst-italic">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                  <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
+              
+              <!-- Card 4 - Version mobile -->
+              <div class="mobile-card">
+                <div class="features-card">
+                  <div class="card-front">
+                    <div class="card-image-wrapper">
+                      <img src="assets/img/ARAS/Musique.jpg" alt="Écoles">
+                      <div class="card-shine"></div>
+                    </div>
+                    <div class="card-content">
+                      <div class="card-icon">
+                        <i class="bi bi-music-note-beamed"></i>
+                      </div>
+                      <h3>Ecoles de musique</h3>
+                      <p class="fst-italic">
+                        Découvrez l'héritage musical africain à travers nos cours.
+                      </p>
+                      <div class="card-action">
+                        <a href="#" class="btn-details btn-flip">Découvrir <i class="bi bi-arrow-right"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-back">
+                    <div class="card-back-shine"></div>
+                    <div class="card-back-content">
+                      <div class="card-back-header">
+                        <h3>Ecoles de musique</h3>
+                        <span>Apprendre et s'épanouir</span>
+                      </div>
+                      <div class="card-back-description">
+                        <p>Les écoles de musique offrent la possibilité de découvrir et de s'épanouir dans le monde de la musique.</p>
+                      </div>
+                      <div class="card-back-details">
+                        <div class="detail-item">
+                          <i class="bi bi-calendar-event"></i>
+                          <span>Saisonnale</span>
+                        </div>
+                        <div class="detail-item">
+                          <i class="bi bi-geo-alt"></i>
+                          <span>Toulouse</span>
+                        </div>
+                      </div>
+                      <div class="card-back-footer">
+                        <button class="btn-flip-back">
+                          <i class="bi bi-arrow-left"></i> Retour
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -379,128 +829,180 @@
     <!-- Gallery Section -->
     <section id="gallery" class="gallery section">
       <div class="container section-title" data-aos="fade-up">
-        <h2>Gallery</h2>
-        <div><span>Check Our</span> <span class="description-title">Gallery</span></div>
+        <h2>Galerie</h2>
+        <div><span>Découvrez</span> <span class="description-title">nos moments forts</span></div>
       </div>
     
       <div class="container gallery-container" data-aos="fade-up">
         <div class="gallery-grid">
-          <!-- Gallery items will be dynamically added here -->
+          <!-- Les images de la galerie seront ajoutées dynamiquement ici -->
+        </div>
+      </div>
+
+      <!-- Overlay pour visualiser les images -->
+      <div class="gallery-overlay">
+        <div class="overlay-content">
+          <img src="" alt="" class="overlay-img">
+          <div class="overlay-caption"></div>
+          <button class="overlay-close"><i class="bi bi-x-lg"></i></button>
+          <div class="overlay-nav">
+            <button class="overlay-prev"><i class="bi bi-chevron-left"></i></button>
+            <button class="overlay-next"><i class="bi bi-chevron-right"></i></button>
+          </div>
         </div>
       </div>
     </section><!-- /Gallery Section -->
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section dark-background">
+    <section id="testimonials" class="testimonials section">
+      <div class="testimonials-bg-container">
+        <img src="./assets/img/proverbes/proverbe-11.jpg" alt="" class="testimonials-bg-image">
+        <div class="testimonials-overlay"></div>
+        <div class="testimonials-grid"></div>
+      </div>
+      
+      <div class="container" data-aos="fade-up">
+        <div class="section-title text-center" data-aos="fade-up" data-aos-delay="100">
+          <h2>Témoignages</h2>
+          <div>
+            <span>Ce que disent</span>
+            <span class="description-title">nos membres</span>
+          </div>
+        </div>
 
-      <img src="assets/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              }
-            }
-          </script>
+        <div class="testimonials-slider" data-aos="fade-up" data-aos-delay="200">
           <div class="swiper-wrapper">
 
+            <!-- Testimonial 1 -->
             <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <div class="testimonial-card">
+                <div class="quote-icon">
+                  <i class="bi bi-quote"></i>
                 </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
+                <div class="testimonial-content">
+                  <p>"Grâce à l'association Retour Aux Sources, j'ai pu redécouvrir les traditions de mes ancêtres et les transmettre à mes enfants. Les ateliers linguistiques ont été une révélation pour toute ma famille."</p>
               </div>
-            </div><!-- End testimonial item -->
+                <div class="testimonial-author">
+                  <div class="author-image">
+                    <img src="./assets/img/testimonials/testimonials-1.jpg" alt="Marie Diop">
+                    <div class="author-glow"></div>
+                </div>
+                  <div class="author-info">
+                    <h3>Marie Diop</h3>
+                    <p>Membre depuis 2020</p>
+                    <div class="rating">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+              </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
+            <!-- Testimonial 2 -->
             <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <div class="testimonial-card">
+                <div class="quote-icon">
+                  <i class="bi bi-quote"></i>
                 </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
+                <div class="testimonial-content">
+                  <p>"Les événements culturels organisés par l'association sont d'une richesse incroyable. J'ai pu échanger avec des personnes de différentes cultures africaines et élargir ma vision du monde."</p>
               </div>
-            </div><!-- End testimonial item -->
-
+                <div class="testimonial-author">
+                  <div class="author-image">
+                    <img src="./assets/img/testimonials/testimonials-2.jpg" alt="Thomas Nkosi">
+                    <div class="author-glow"></div>
+                  </div>
+                  <div class="author-info">
+                    <h3>Thomas Nkosi</h3>
+                    <p>Bénévole</p>
+                    <div class="rating">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Testimonial 3 -->
             <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <div class="testimonial-card">
+                <div class="quote-icon">
+                  <i class="bi bi-quote"></i>
                 </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
+                <div class="testimonial-content">
+                  <p>"Les ateliers de danse traditionnelle m'ont permis de renouer avec mes racines et de partager cette passion avec mes amis. L'ambiance est toujours chaleureuse et bienveillante."</p>
               </div>
-            </div><!-- End testimonial item -->
-
+                <div class="testimonial-author">
+                  <div class="author-image">
+                    <img src="./assets/img/testimonials/testimonials-3.jpg" alt="Sophie Koné">
+                    <div class="author-glow"></div>
+                  </div>
+                  <div class="author-info">
+                    <h3>Sophie Koné</h3>
+                    <p>Membre depuis 2019</p>
+                    <div class="rating">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Testimonial 4 -->
             <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <div class="testimonial-card">
+                <div class="quote-icon">
+                  <i class="bi bi-quote"></i>
                 </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
+                <div class="testimonial-content">
+                  <p>"En tant que partenaire de l'association, j'ai pu constater l'impact positif de leurs actions sur la communauté. Leur engagement pour la préservation du patrimoine culturel est exemplaire."</p>
               </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
+                <div class="testimonial-author">
+                  <div class="author-image">
+                    <img src="./assets/img/testimonials/testimonials-4.jpg" alt="Jean Ouédraogo">
+                    <div class="author-glow"></div>
           </div>
-          <div class="swiper-pagination"></div>
+                  <div class="author-info">
+                    <h3>Jean Ouédraogo</h3>
+                    <p>Partenaire culturel</p>
+                    <div class="rating">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </div>
 
       </div>
 
+          <div class="swiper-pagination"></div>
+          
+          <div class="testimonials-navigation">
+            <button class="swiper-button-prev">
+              <i class="bi bi-chevron-left"></i>
+            </button>
+            <button class="swiper-button-next">
+              <i class="bi bi-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
     </section><!-- /Testimonials Section -->
 
     <!-- Pricing Section (Calendrier) -->
@@ -513,8 +1015,72 @@
         </div>
       </div>
       
-      <!-- Le calendrier sera injecté ici -->
-      <div id="calendar"></div>
+      <!-- Calendrier amélioré -->
+      <div class="container" data-aos="fade-up">
+        <div class="calendar-wrapper">
+          <div class="calendar-header">
+            <button id="prev-month"><i class="bi bi-chevron-left"></i></button>
+            <h3 id="current-month-year">Février 2024</h3>
+            <button id="next-month"><i class="bi bi-chevron-right"></i></button>
+          </div>
+          <div class="calendar-filter">
+            <button id="filter-events-btn" class="filter-events-btn">
+              <i class="bi bi-funnel"></i> Afficher les événements
+            </button>
+          </div>
+          <div class="weekdays">
+            <div>Dim</div>
+            <div>Lun</div>
+            <div>Mar</div>
+            <div>Mer</div>
+            <div>Jeu</div>
+            <div>Ven</div>
+            <div>Sam</div>
+          </div>
+          <div id="calendar" class="calendar-grid"></div>
+          
+          <!-- Modal pour les détails d'événement -->
+          <div id="calendar-modal" class="calendar-modal">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 id="modal-event-title">Détails de l'événement</h4>
+                <span id="close-modal" class="close-modal">&times;</span>
+              </div>
+              <div class="modal-body">
+                <div class="modal-event-meta">
+                  <div class="modal-event-date">
+                    <i class="bi bi-calendar-event"></i> 
+                    <span id="modal-date">Date sélectionnée</span>
+                  </div>
+                  <div class="modal-event-category" id="modal-category">
+                    <i class="bi bi-tag"></i>
+                    <span>Catégorie d'événement</span>
+                  </div>
+                </div>
+                <div class="modal-event-image" id="modal-image-container">
+                  <img id="modal-image" src="" alt="Image de l'événement">
+                </div>
+                <div class="modal-event-description" id="modal-description">
+                  Description de l'événement sera affichée ici.
+                </div>
+                <div class="modal-event-details">
+                  <div class="modal-detail-item">
+                    <i class="bi bi-geo-alt"></i>
+                    <span id="modal-location">Lieu de l'événement</span>
+                  </div>
+                  <div class="modal-detail-item">
+                    <i class="bi bi-clock"></i>
+                    <span id="modal-time">Horaire de l'événement</span>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button id="modal-register-btn" class="modal-btn">S'inscrire</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- blogs Section -->
@@ -523,15 +1089,23 @@
         <div class="blog-header">
           <div class="line"></div>
           <h2>BLOG</h2>
-          <p>Découvrez nos articles</p>
+          <p>Découvrez nos articles et publications</p>
           <div class="blog-filters">
-            <button class="filter-btn active" data-filter="all">Tous</button>
-            <button class="filter-btn" data-filter="proverbs">Proverbes</button>
-            <button class="filter-btn" data-filter="reports">Comptes rendus</button>
+            <button class="filter-btn active" data-filter="all">
+              <i class="bi bi-grid"></i> Tous
+            </button>
+            <button class="filter-btn" data-filter="proverbs">
+              <i class="bi bi-quote"></i> Proverbes
+            </button>
+            <button class="filter-btn" data-filter="reports">
+              <i class="bi bi-file-text"></i> Comptes rendus
+            </button>
           </div>
         </div>
     
-        <div class="blog-grid" id="blogGrid"></div>
+        <div class="blog-grid" id="blogGrid">
+          <!-- Le contenu sera injecté par JavaScript -->
+        </div>
       </div>
     
       <!-- PDF Viewer Modal -->
@@ -539,13 +1113,13 @@
         <div class="modal-content">
           <div class="modal-header">
             <div class="modal-title" id="pdfTitle"></div>
-            <button class="close-btn">&times;</button>
+            <button class="close-btn"><i class="bi bi-x"></i></button>
           </div>
           <div class="modal-body">
             <div id="pdfViewer"></div>
             <div class="download-section">
               <button class="download-btn" id="downloadPdf">
-                <span class="download-icon">↓</span>
+                <span class="download-icon"><i class="bi bi-download"></i></span>
                 <span>Télécharger le PDF</span>
               </button>
             </div>
@@ -555,212 +1129,288 @@
     </section>
 
     <!-- Faq Section -->
-    <section id="faq" class="faq section light-background">
-
+    <section id="faq" class="faq section">
       <div class="container-fluid">
-
         <div class="row gy-4">
-
           <div class="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1">
-
             <div class="content px-xl-5" data-aos="fade-up" data-aos-delay="100">
-              <h3><span>Frequently Asked </span><strong>Questions</strong></h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+              <h3><span>Questions </span><strong>Fréquentes</strong></h3>
+              <p style="color: #25a244;">
+                Découvrez les réponses aux questions les plus courantes sur notre association, 
+                nos événements et nos activités. N'hésitez pas à nous contacter si vous ne trouvez pas 
+                la réponse à votre question.
               </p>
             </div>
 
-            <div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">
+            <div class="faq-container position-relative px-xl-5" data-aos="fade-up" data-aos-delay="200">
+              <!-- Élément interactif pour l'effet de lueur -->
+              <div class="faq-glow"></div>
 
               <div class="faq-item faq-active">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Non consectetur a erat nam at lectus urna duis?</h3>
+                <i class="faq-icon bi bi-lightbulb"></i>
+                <h3 style="color: #0077cc;">Quelle est la mission de l'Association Retour Aux Sources?</h3>
                 <div class="faq-content">
-                  <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
+                  <p style="color: #25a244;">Notre mission est de promouvoir et préserver les valeurs culturelles africaines, 
+                  de faciliter le rayonnement culturel, idéologique, socio-politique et économique 
+                  de l'Afrique. Nous œuvrons à créer des espaces d'apprentissage, d'échange et de 
+                  transmission de notre patrimoine ancestral.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+              </div>
 
               <div class="faq-item">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h3>
+                <i class="faq-icon bi bi-people"></i>
+                <h3 style="color: #0077cc;">Comment puis-je rejoindre l'association ou participer à vos activités?</h3>
                 <div class="faq-content">
-                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                  <p style="color: #25a244;">Vous pouvez rejoindre notre association en remplissant le formulaire d'adhésion 
+                  disponible sur notre site ou en nous contactant directement par email. Nos activités 
+                  sont ouvertes aux membres et, pour la plupart, au grand public. Consultez notre 
+                  calendrier pour connaître les prochains événements.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+              </div>
 
               <div class="faq-item">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
+                <i class="faq-icon bi bi-calendar-event"></i>
+                <h3 style="color: #0077cc;">À quelle fréquence organisez-vous des événements culturels?</h3>
                 <div class="faq-content">
-                  <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
+                  <p style="color: #25a244;">Nous organisons des événements réguliers tout au long de l'année, incluant des 
+                  cérémonies traditionnelles, des ateliers d'apprentissage linguistique, des conférences 
+                  thématiques et des activités récréatives. En moyenne, nous tenons 2 à 3 événements 
+                  par mois. Tous nos événements sont annoncés sur notre calendrier et notre page de médias sociaux.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+              </div>
 
+              <div class="faq-item">
+                <i class="faq-icon bi bi-map"></i>
+                <h3 style="color: #0077cc;">Où se déroulent vos activités et peuvent-elles être accessibles à distance?</h3>
+                <div class="faq-content">
+                  <p style="color: #25a244;">Nos activités se déroulent principalement à notre siège social et dans divers lieux 
+                  culturels partenaires. Pour les membres éloignés, nous proposons désormais un accès 
+                  à distance pour certains événements comme les conférences et ateliers via notre plateforme 
+                  en ligne. Consultez la description de chaque événement pour connaître les modalités d'accès.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
             </div>
 
+            </div>
           </div>
 
           <div class="col-lg-5 order-1 order-lg-2">
             <img src="assets/img/faq.jpg" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
           </div>
         </div>
-
       </div>
-
     </section><!-- /Faq Section -->
 
     <!-- Contact Section -->
     <section id="contact" class="contact section">
+      <div class="contact-overlay"></div>
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Contact</h2>
-        <div><span>Check Our</span> <span class="description-title">Contact</span></div>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4">
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-              <i class="bi bi-geo-alt flex-shrink-0"></i>
-              <div>
-                <h3>Address</h3>
-                <p>A108 Adam Street, New York, NY 535022</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-              <i class="bi bi-telephone flex-shrink-0"></i>
-              <div>
-                <h3>Call Us</h3>
-                <p>+1 5589 55488 55</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-              <i class="bi bi-envelope flex-shrink-0"></i>
-              <div>
-                <h3>Email Us</h3>
-                <p>info@example.com</p>
-              </div>
-            </div><!-- End Info Item -->
-
-          </div>
-
-          <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
-            </form>
-          </div><!-- End Contact Form -->
-
+        <div>
+          <span>Contactez</span> 
+          <span class="description-title">Nous</span>
         </div>
-
       </div>
 
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+
+          <div class="col-lg-6">
+            <div class="contact-info-container">
+              <div class="contact-info-item" data-aos="zoom-in" data-aos-delay="200">
+                <div class="contact-icon">
+                  <i class="bi bi-geo-alt-fill"></i>
+              </div>
+                <div class="contact-text">
+                  <h3>Notre adresse</h3>
+                  <p>123 Rue de la Culture, 31000 Toulouse, France</p>
+                </div>
+              </div>
+
+              <div class="contact-info-item" data-aos="zoom-in" data-aos-delay="300">
+                <div class="contact-icon">
+                  <i class="bi bi-telephone-fill"></i>
+              </div>
+                <div class="contact-text">
+                  <h3>Téléphone</h3>
+                  <p>+33 6 12 34 56 78</p>
+                </div>
+              </div>
+
+              <div class="contact-info-item" data-aos="zoom-in" data-aos-delay="400">
+                <div class="contact-icon">
+                  <i class="bi bi-envelope-fill"></i>
+              </div>
+                <div class="contact-text">
+                  <h3>Email</h3>
+                  <p>contact@retouraxsources.org</p>
+                </div>
+              </div>
+              
+              <div class="contact-info-item" data-aos="zoom-in" data-aos-delay="500">
+                <div class="contact-icon">
+                  <i class="bi bi-clock-fill"></i>
+                </div>
+                <div class="contact-text">
+                  <h3>Heures d'ouverture</h3>
+                  <p>Lundi - Vendredi: 9h - 17h<br>Samedi: Sur rendez-vous</p>
+                </div>
+          </div>
+
+              <div class="contact-social">
+                <h4>Suivez-nous</h4>
+                <div class="social-links">
+                  <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                  <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+                  <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                  <a href="#" class="youtube"><i class="bi bi-youtube"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <form class="contact-form" data-aos="zoom-in" data-aos-delay="200">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="name" placeholder="Votre Nom">
+                    <label for="name">Votre Nom</label>
+                </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="email" class="form-control" id="email" placeholder="Votre Email">
+                    <label for="email">Votre Email</label>
+                </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="subject" placeholder="Sujet">
+                    <label for="subject">Sujet</label>
+                </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <textarea class="form-control" id="message" placeholder="Message" style="height: 150px"></textarea>
+                    <label for="message">Message</label>
+                  </div>
+                </div>
+                <div class="col-12 text-center">
+                  <button type="submit" class="btn-contact-submit">
+                    <span>Envoyer</span>
+                    <i class="bi bi-send-fill"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+        </div>
+
+        </div>
+      </div>
+
+      <!-- Google Maps Section -->
+      <div class="container-fluid p-0 mt-5" data-aos="fade-up">
+        <div class="map-container">
+          <div class="map-card">
+            <div class="map-header">
+              <h3><i class="bi bi-pin-map-fill"></i> Notre Localisation</h3>
+            </div>
+            <div class="map-content">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d92456.59975352035!2d1.3628229791947778!3d43.60080324958892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aebb6fec7552ff%3A0x406f69c2f411030!2sToulouse!5e0!3m2!1sfr!2sfr!4v1684255436128!5m2!1sfr!2sfr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
     </section><!-- /Contact Section -->
 
   </main>
 
-  <footer id="footer" class="footer dark-background">
+  <footer id="footer" class="footer">
+    <div class="footer-glow"></div>
+    <div class="footer-grid-lines"></div>
 
     <div class="container footer-top">
       <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
+        <div class="col-lg-4 col-md-6 footer-about" data-aos="fade-up" data-aos-delay="100">
           <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Bootslander</span>
+            <div class="logo-shine"></div>
+            <span class="sitename">Retour Aux Sources</span>
           </a>
-          <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+          <div class="footer-description">
+            <p>Association culturelle africaine valorisant l'héritage, la tradition et l'échange interculturel. Notre mission est de rapprocher les générations et les cultures.</p>
+          </div>
+          <div class="footer-contact">
+            <div class="contact-info">
+              <i class="bi bi-geo-alt-fill"></i>
+              <p>123 Rue de la Culture, 31000 Toulouse</p>
+            </div>
+            <div class="contact-info">
+              <i class="bi bi-telephone-fill"></i>
+              <p>+33 6 12 34 56 78</p>
+            </div>
+            <div class="contact-info">
+              <i class="bi bi-envelope-fill"></i>
+              <p>contact@retouraxsources.org</p>
+            </div>
           </div>
           <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="youtube"><i class="bi bi-youtube"></i></a>
           </div>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
+        <div class="col-lg-2 col-md-3 footer-links" data-aos="fade-up" data-aos-delay="200">
+          <h4>Liens Rapides</h4>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#hero"><i class="bi bi-chevron-right"></i> Accueil</a></li>
+            <li><a href="#about"><i class="bi bi-chevron-right"></i> À propos</a></li>
+            <li><a href="#features"><i class="bi bi-chevron-right"></i> Activités</a></li>
+            <li><a href="#gallery"><i class="bi bi-chevron-right"></i> Galerie</a></li>
+            <li><a href="#pricing"><i class="bi bi-chevron-right"></i> Calendrier</a></li>
+            <li><a href="#contact"><i class="bi bi-chevron-right"></i> Contact</a></li>
           </ul>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
+        <div class="col-lg-2 col-md-3 footer-links" data-aos="fade-up" data-aos-delay="300">
+          <h4>Nos Activités</h4>
           <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
+            <li><a href="#"><i class="bi bi-chevron-right"></i> Événements culturels</a></li>
+            <li><a href="#"><i class="bi bi-chevron-right"></i> Ateliers linguistiques</a></li>
+            <li><a href="#"><i class="bi bi-chevron-right"></i> Échanges interculturels</a></li>
+            <li><a href="#"><i class="bi bi-chevron-right"></i> Danses traditionnelles</a></li>
+            <li><a href="#"><i class="bi bi-chevron-right"></i> Cuisine africaine</a></li>
           </ul>
         </div>
 
-        <div class="col-lg-4 col-md-12 footer-newsletter">
-          <h4>Our Newsletter</h4>
-          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-          <form action="forms/newsletter.php" method="post" class="php-email-form">
-            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+        <div class="col-lg-4 col-md-12 footer-newsletter" data-aos="fade-up" data-aos-delay="400">
+          <h4>Notre Newsletter</h4>
+          <p>Recevez nos actualités et les informations sur nos prochains événements directement dans votre boîte mail.</p>
+          <form class="newsletter-form">
+            <div class="input-group">
+              <div class="input-wrapper">
+                <input type="email" placeholder="Votre Email">
+                <div class="input-glow"></div>
+              </div>
+              <button type="submit">S'abonner <i class="bi bi-arrow-right"></i></button>
+            </div>
+            <div class="success-message">Merci pour votre inscription !</div>
           </form>
         </div>
-
       </div>
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Association Retour Aux Sources</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] 
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>-->
+      <div class="copyright-border"></div>
+      <p>&copy; <span id="currentYear">2024</span> <strong class="sitename">Association Retour Aux Sources</strong> | Tous droits réservés</p>
       </div>
-    </div>
-
   </footer>
 
   <!-- Scroll Top -->
@@ -864,6 +1514,56 @@
     console.error("Erreur PureCounter:", e);
   }
 </script>
+
+<!-- Script pour la section blog -->
+<script src="assets/js/blog.js"></script>
+
+<!-- Script pour la section contact -->
+<script src="assets/js/contact.js"></script>
+
+<!-- Script pour mettre à jour l'année du copyright -->
+<script>
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
+
+<!-- Script pour le footer -->
+<script src="assets/js/footer.js"></script>
+
+<!-- Script pour les témoignages -->
+<script src="assets/js/testimonials.js"></script>
+
+<!-- Script pour la galerie -->
+<script src="assets/js/gallery.js"></script>
+
+<!-- Ajoutez juste avant la fermeture du body, après le script de gallery.js -->
+<script src="assets/js/gallery-effects.js"></script>
+
+<!-- Ajoutez avant la fermeture du body, avec les autres scripts -->
+<script src="assets/js/details-effects.js"></script>
+
+<!-- Ajoutez avant la fermeture du body, avec les autres scripts -->
+<script src="assets/js/stats-effects.js"></script>
+
+<!-- Ajoutez avant la fermeture du body, avec les autres scripts -->
+<script src="assets/js/about-effects.js"></script>
+
+<!-- Ajoutez avant la fermeture du body, avec les autres scripts -->
+<script src="assets/js/hero-effects.js"></script>
+
+<!-- Script d'optimisations responsive -->
+<script src="assets/js/responsive-optimizations.js"></script>
+
+<!-- Ajouter après la fermeture du modal -->
+<div class="calendar-help-tooltip">
+  <i class="bi bi-info-circle"></i>
+  <span>Cliquez sur une date pour voir les détails de l'événement</span>
+</div>
+
+<!-- Script pour les cartes mobiles -->
+<script src="assets/js/mobile-cards.js"></script>
+
+<!-- Juste avant la fermeture du body -->
+<script src="assets/js/card-fix.js"></script>
 
 </body>
 
